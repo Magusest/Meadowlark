@@ -2,14 +2,7 @@ import express from 'express'
 import { engine } from 'express-handlebars'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
-
-const fortunes = [
-    "Победи свои страхи, или они победят тебя.",
-    "Рекам нужны истоки.",
-    "Не бойся неведомого.",
-    "Тебя ждет приятный сюрприз.",
-    "Будь проще везде, где только можно.",
-]
+import { getFortune } from './lib/fortune.js'
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -26,8 +19,7 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', (req, res) => res.render('home'))
 
 app.get('/about', (req, res) => {
-    const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)]
-    res.render('about', {fortune: randomFortune})
+    res.render('about', {fortune: getFortune()})
 })
 
 // 404 page
