@@ -1,0 +1,16 @@
+{
+  "name": "meadowlark",
+  "version": "1.0.0",
+  "description": "Training Node/Express project",
+  "main": "meadowlark.js",
+  "scripts": {
+    "start": "node meadowlark.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fedor Stepanov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.6"
+  }
+}
