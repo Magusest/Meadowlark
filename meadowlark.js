@@ -3,6 +3,7 @@ import { engine } from "express-handlebars";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { getFortune } from "./lib/fortune.js";
+import { home, about, notFound, serverError } from "./lib/handlers";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -16,24 +17,15 @@ app.set("view engine", "handlebars");
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("/", (req, res) => res.render("home"));
+app.get("/", home);
 
-app.get("/about", (req, res) => {
-  res.render("about", { fortune: getFortune() });
-});
+app.get("/about", about);
 
 // 404 page
-app.use((req, res) => {
-  res.status(404);
-  res.render("404");
-});
+app.use(notFound);
 
 // 500 page
-app.use((err, req, res, next) => {
-  console.error(err.message);
-  res.status(500);
-  res.render("500");
-});
+app.use(serverError);
 
 app.listen(port, () =>
   console.log(

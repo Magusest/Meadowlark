@@ -1,11 +1,12 @@
 {
   "name": "meadowlark",
   "version": "1.0.0",
+  "type": "module",
   "description": "Training Node/Express project",
   "main": "meadowlark.js",
   "scripts": {
     "start": "node meadowlark.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
   },
   "author": "Fedor Stepanov",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "express-handlebars": "^8.0.6"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "prettier": "^3.8.1"
   }
 }
