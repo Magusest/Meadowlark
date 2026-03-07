@@ -2,3 +2,5 @@ node_modules
 *~
 .DS_Store
 .vscode
+.credentials.development.json
+config.js
